@@ -3,31 +3,34 @@ package graphics.components;
 import configs.ConfigFile;
 import graphics.game.Updatable;
 
-public class GameLoop extends Thread {
+public class GameLoop implements Runnable {
 
-    private int fps, milSec, frames, updatesPerRepaint;
-    private ConfigFile configFile;
-    private Updatable updatable;
+    private int frames;
+    private int updatesPerRepaint;
+    private final ConfigFile configFile;
+    private final Updatable updatable;
+    private final Thread thread;
+    private boolean running;
 
     public GameLoop(ConfigFile configFile, Updatable updatable) {
         this.configFile = configFile;
         this.updatable = updatable;
+        this.thread = new Thread(this);
         setValues();
     }
 
     private void setValues() {
-        fps = configFile.readInt("fps");
-        milSec = configFile.readInt("milSec");
+        int fps = configFile.readInt("fps");
+        int milSec = configFile.readInt("milSec");
         updatesPerRepaint = configFile.readInt("updatesPerRepaint");
         frames = milSec / fps;
     }
 
     @Override
     public void run() {
-
         long beginning = System.currentTimeMillis(), ending = beginning;
         long updateTimes;
-        while (true) {
+        while (running) {
             updateTimes = (ending - beginning) / frames;
             while (updateTimes >= updatesPerRepaint) {
                 updatable.update();
@@ -35,13 +38,27 @@ public class GameLoop extends Thread {
             }
             beginning = System.currentTimeMillis();
             updatable.render();
-            try {
-                Thread.sleep(frames);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
+            sleep(frames);
             ending = System.currentTimeMillis();
         }
+    }
+
+
+    private void sleep(long time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            running = false;
+            // we are Interrupted
+        }
+    }
+
+    public void stop() {
+        running = false;
+    }
+
+    public void start(){
+        thread.start();
+        running = true;
     }
 }
