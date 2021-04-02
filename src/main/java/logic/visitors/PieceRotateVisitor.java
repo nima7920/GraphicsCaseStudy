@@ -79,23 +79,23 @@ public class PieceRotateVisitor implements PieceVisitor {
 
         switch (leftLeg.getRotationalState()) {
             case up:
-                leftLeg.setXs(xs[1],xs[1],xs[1],xs[1]+1);
-                leftLeg.setYs(ys[1]+1,ys[1],ys[1]-1,ys[1]+1);
+                leftLeg.setXs(xs[1], xs[1], xs[1], xs[1] + 1);
+                leftLeg.setYs(ys[1] + 1, ys[1], ys[1] - 1, ys[1] + 1);
                 leftLeg.setRotationalState(RotationalState.right);
                 break;
             case down:
-                leftLeg.setXs(xs[1],xs[1],xs[1],xs[1]-1);
-                leftLeg.setYs(ys[1]-1,ys[1],ys[1]+1,ys[1]-1);
+                leftLeg.setXs(xs[1], xs[1], xs[1], xs[1] - 1);
+                leftLeg.setYs(ys[1] - 1, ys[1], ys[1] + 1, ys[1] - 1);
                 leftLeg.setRotationalState(RotationalState.left);
                 break;
             case right:
-                leftLeg.setXs(xs[1]+1,xs[1],xs[1]-1,xs[1]-1);
-                leftLeg.setYs(ys[1],ys[1],ys[1],ys[1]+1);
+                leftLeg.setXs(xs[1] + 1, xs[1], xs[1] - 1, xs[1] - 1);
+                leftLeg.setYs(ys[1], ys[1], ys[1], ys[1] + 1);
                 leftLeg.setRotationalState(RotationalState.down);
                 break;
             case left:
-                leftLeg.setXs(xs[1]-1,xs[1],xs[1]+1,xs[1]+1);
-                leftLeg.setYs(ys[1],ys[1],ys[1],ys[1]-1);
+                leftLeg.setXs(xs[1] - 1, xs[1], xs[1] + 1, xs[1] + 1);
+                leftLeg.setYs(ys[1], ys[1], ys[1], ys[1] - 1);
                 leftLeg.setRotationalState(RotationalState.up);
                 break;
         }
@@ -108,23 +108,23 @@ public class PieceRotateVisitor implements PieceVisitor {
 
         switch (rightLeg.getRotationalState()) {
             case up:
-                rightLeg.setXs(xs[1],xs[1],xs[1],xs[1]+1);
-                rightLeg.setYs(ys[1]+1,ys[1],ys[1]-1,ys[1]-1);
+                rightLeg.setXs(xs[1], xs[1], xs[1], xs[1] + 1);
+                rightLeg.setYs(ys[1] + 1, ys[1], ys[1] - 1, ys[1] - 1);
                 rightLeg.setRotationalState(RotationalState.right);
                 break;
             case down:
-                rightLeg.setXs(xs[1],xs[1],xs[1],xs[1]-1);
-                rightLeg.setYs(ys[1]-1,ys[1],ys[1]+1,ys[1]+1);
+                rightLeg.setXs(xs[1], xs[1], xs[1], xs[1] - 1);
+                rightLeg.setYs(ys[1] - 1, ys[1], ys[1] + 1, ys[1] + 1);
                 rightLeg.setRotationalState(RotationalState.left);
                 break;
             case right:
-                rightLeg.setXs(xs[1]+1,xs[1],xs[1]-1,xs[1]+1);
-                rightLeg.setYs(ys[1],ys[1],ys[1],ys[1]+1);
+                rightLeg.setXs(xs[1] + 1, xs[1], xs[1] - 1, xs[1] + 1);
+                rightLeg.setYs(ys[1], ys[1], ys[1], ys[1] + 1);
                 rightLeg.setRotationalState(RotationalState.down);
                 break;
             case left:
-                rightLeg.setXs(xs[1]-1,xs[1],xs[1]+1,xs[1]-1);
-                rightLeg.setYs(ys[1],ys[1],ys[1],ys[1]-1);
+                rightLeg.setXs(xs[1] - 1, xs[1], xs[1] + 1, xs[1] - 1);
+                rightLeg.setYs(ys[1], ys[1], ys[1], ys[1] - 1);
                 rightLeg.setRotationalState(RotationalState.up);
                 break;
         }

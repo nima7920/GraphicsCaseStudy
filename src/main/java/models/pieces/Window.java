@@ -21,13 +21,15 @@ public class Window extends Piece {
         cell2 = new Cell(boardWidth / 2 + 1, baseY);
         cell3 = new Cell(boardWidth / 2, baseY + 1);
         cell4 = new Cell(boardWidth / 2 + 1, baseY + 1);
-        rotationalState= RotationalState.down;
+        rotationalState = RotationalState.down;
 
     }
+
     @Override
     public String getName() {
         return "window";
     }
+
     @Override
     public boolean accept(PieceVisitor pieceVisitor) {
         return pieceVisitor.windowVisit(this);

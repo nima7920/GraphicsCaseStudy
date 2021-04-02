@@ -9,8 +9,8 @@ public class OptionsPanel extends SubPanel {
 
     private JButton startButton, undoButton, dropButton;
 
-    public OptionsPanel(ConfigFile configs,Actions actions) {
-        super(configs,actions);
+    public OptionsPanel(ConfigFile configs, Actions actions) {
+        super(configs, actions);
     }
 
     @Override

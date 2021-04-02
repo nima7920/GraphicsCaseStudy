@@ -7,9 +7,9 @@ public class GCell {
     private Dimension size;
     private Point location;
 
-    public void paint(Graphics2D g2d){
+    public void paint(Graphics2D g2d) {
         g2d.setPaint(color);
-        g2d.fillRect(location.x,location.y,size.width,size.height);
+        g2d.fillRect(location.x, location.y, size.width, size.height);
     }
 
     public Color getColor() {

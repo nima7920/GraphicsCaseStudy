@@ -5,8 +5,6 @@ import graphics.components.GameLoop;
 import graphics.game.GameFrame;
 import graphics.game.GamePanel;
 
-import javax.swing.*;
-
 public class GameScreen {
 
     private ConfigRepository configRepository;
@@ -35,7 +33,7 @@ public class GameScreen {
 //        frame.setVisible(true);
         frame = new GameFrame(configRepository.getConfig("GameFrame"), gamePanel);
         frame.initFrame();
-        GameLoop gameLoop=new GameLoop(configRepository.getConfig("Loop"),frame);
+        GameLoop gameLoop = new GameLoop(configRepository.getConfig("Loop"), frame);
         gameLoop.start();
     }
 

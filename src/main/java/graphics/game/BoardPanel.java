@@ -13,8 +13,8 @@ public class BoardPanel extends SubPanel {
     private GCell[][] cells;
     private Converter converter;
 
-    public BoardPanel(ConfigFile configs,Actions actions ,Converter converter) {
-        super(configs,actions);
+    public BoardPanel(ConfigFile configs, Actions actions, Converter converter) {
+        super(configs, actions);
         this.converter = converter;
     }
 

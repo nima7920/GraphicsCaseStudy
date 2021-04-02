@@ -57,7 +57,7 @@ public class GameLoop implements Runnable {
         running = false;
     }
 
-    public void start(){
+    public void start() {
         thread.start();
         running = true;
     }

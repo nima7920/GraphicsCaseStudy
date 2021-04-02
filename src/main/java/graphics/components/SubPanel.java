@@ -11,9 +11,9 @@ public abstract class SubPanel extends JPanel {
     protected ConfigFile configs;
     protected Actions actions;
 
-    public SubPanel(ConfigFile configs,Actions actions) {
+    public SubPanel(ConfigFile configs, Actions actions) {
         this.configs = configs;
-        this.actions=actions;
+        this.actions = actions;
         setBounds(configs.readRectangle(""));
         setBackground(configs.readColor("background"));
         setLayout(null);

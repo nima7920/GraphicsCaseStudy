@@ -20,12 +20,14 @@ public class RightLeg extends Piece {
         cell2 = new Cell(boardWidth / 2, baseY);
         cell3 = new Cell(boardWidth / 2 + 1, baseY);
         cell4 = new Cell(boardWidth / 2 + 1, baseY + 1);
-        rotationalState= RotationalState.down;
+        rotationalState = RotationalState.down;
     }
+
     @Override
     public String getName() {
         return "rightLeg";
     }
+
     @Override
     public boolean accept(PieceVisitor pieceVisitor) {
         return pieceVisitor.rightLegVisit(this);

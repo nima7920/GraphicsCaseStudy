@@ -19,8 +19,8 @@ public class Dropper extends Thread {
 
     private void initComponents() {
         time = loopConfigs.readInt("time");
-        pieceGenerator = new PieceGenerator(loopConfigs.readInt("queueLength"),loopConfigs.readInt("boardWidth")
-        ,loopConfigs.readInt("numberOfPieces"));
+        pieceGenerator = new PieceGenerator(loopConfigs.readInt("queueLength"), loopConfigs.readInt("boardWidth")
+                , loopConfigs.readInt("numberOfPieces"));
     }
 
     @Override
@@ -28,13 +28,13 @@ public class Dropper extends Thread {
         boardHandler.setCurrentPiece(pieceGenerator.getCurrentPiece());
         nextPiece = pieceGenerator.getNextPiece();
 
-        while(true){
-            if(!boardHandler.moveDown()){
+        while (true) {
+            if (!boardHandler.moveDown()) {
                 boardHandler.addPieceToUsed();
                 pieceGenerator.shiftQueue();
                 boardHandler.setCurrentPiece(pieceGenerator.getCurrentPiece());
                 boardHandler.turnOver();
-                nextPiece=pieceGenerator.getNextPiece();
+                nextPiece = pieceGenerator.getNextPiece();
             }
             boardHandler.updateAdmin();
             try {

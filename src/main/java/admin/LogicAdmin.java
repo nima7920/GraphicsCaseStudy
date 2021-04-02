@@ -12,7 +12,7 @@ public class LogicAdmin {
     private int[] pieceXs, pieceYs;
     private String currentPieceName, nextPieceName;
     private int score = 0;
-    private boolean gameOver =false;
+    private boolean gameOver = false;
 
     public static LogicAdmin getInstance() {
         if (logicAdmin == null)
@@ -43,8 +43,9 @@ public class LogicAdmin {
     }
 
     public void gameOver() {
-        gameOver =true;
+        gameOver = true;
     }
+
     public int getScore() {
         return score;
     }

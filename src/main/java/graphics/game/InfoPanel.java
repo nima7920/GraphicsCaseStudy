@@ -13,8 +13,8 @@ public class InfoPanel extends SubPanel {
     private JLabel scoreLabel;
     private int score;
 
-    public InfoPanel(ConfigFile configs,Actions actions) {
-        super(configs,actions);
+    public InfoPanel(ConfigFile configs, Actions actions) {
+        super(configs, actions);
     }
 
     @Override

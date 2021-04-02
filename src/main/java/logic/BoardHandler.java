@@ -126,7 +126,7 @@ public class BoardHandler {
     private void checkGameOver() {
         int[] xs = currentPiece.getXs(), ys = currentPiece.getYs();
         if (board.getCell(xs[0], ys[0]).isUsed() || board.getCell(xs[1], ys[1]).isUsed() ||
-                board.getCell(xs[2], ys[2]).isUsed() || board.getCell(xs[3], ys[3]).isUsed()){
+                board.getCell(xs[2], ys[2]).isUsed() || board.getCell(xs[3], ys[3]).isUsed()) {
             LogicAdmin.getInstance().gameOver();
         }
 

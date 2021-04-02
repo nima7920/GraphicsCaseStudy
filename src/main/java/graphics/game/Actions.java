@@ -32,9 +32,9 @@ public class Actions {
     ActionListener startButtonAction = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(((JButton) e.getSource()).getText().equals(startText)){
+            if (((JButton) e.getSource()).getText().equals(startText)) {
                 ((JButton) e.getSource()).setText(pauseText);
-            }else{
+            } else {
                 ((JButton) e.getSource()).setText(startText);
             }
             GraphicsAdmin.getInstance().startPause();
