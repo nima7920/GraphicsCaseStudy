@@ -8,20 +8,17 @@ import models.Board;
 import models.pieces.Piece;
 
 public class BoardHandler {
-
-    private ConfigFile boardConfigs;
-    private Piece currentPiece, nextPiece;
+    private Piece currentPiece;
     private Board board;
     private PieceRotatableVisitor pieceRotatableVisitor;
     private PieceRotateVisitor pieceRotateVisitor;
     private int score = 0;
 
     public BoardHandler(ConfigFile boardConfigs) {
-        this.boardConfigs = boardConfigs;
-        initialize();
+        initialize(boardConfigs);
     }
 
-    private void initialize() {
+    private void initialize(ConfigFile boardConfigs) {
         board = new Board(boardConfigs.readInt("m"), boardConfigs.readInt("n"));
         pieceRotatableVisitor = new PieceRotatableVisitor(board);
         pieceRotateVisitor = new PieceRotateVisitor(board);
@@ -133,6 +130,6 @@ public class BoardHandler {
     }
 
     void updateAdmin() {
-        LogicAdmin.getInstance().updateBoard(board, currentPiece, nextPiece, score);
+        LogicAdmin.getInstance().updateBoard(board, currentPiece, score);
     }
 }

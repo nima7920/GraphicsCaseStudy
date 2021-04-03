@@ -6,7 +6,7 @@ public class LogicEngine {
 
     private BoardHandler boardHandler;
     private Dropper dropper;
-    private ConfigRepository logicConfigs;
+    private final ConfigRepository logicConfigs;
     private boolean isPaused = false;
 
     public LogicEngine(ConfigRepository logicConfigs) {

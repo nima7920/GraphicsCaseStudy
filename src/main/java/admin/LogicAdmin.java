@@ -20,7 +20,7 @@ public class LogicAdmin {
         return logicAdmin;
     }
 
-    public void updateBoard(Board board, Piece currentPiece, Piece nextPiece, int score) {
+    public void updateBoard(Board board, Piece currentPiece, int score) {
         convertBoard(board);
         pieceXs = currentPiece.getXs();
         pieceYs = currentPiece.getYs();
