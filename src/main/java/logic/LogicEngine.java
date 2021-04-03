@@ -16,7 +16,7 @@ public class LogicEngine {
     public void initialize() {
         boardHandler = new BoardHandler(logicConfigs.getConfig("Board"));
         dropper = new Dropper(boardHandler, logicConfigs.getConfig("Dropper"));
-        dropper.start();
+//        dropper.start();
     }
 
     public void rotate() {

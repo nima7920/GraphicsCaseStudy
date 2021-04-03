@@ -1,47 +1,60 @@
 package logic;
 
 import configs.ConfigFile;
-import models.pieces.Piece;
 
-public class Dropper extends Thread {
+public class Dropper /*extends Thread */{
 
-    private BoardHandler boardHandler;
+    private final BoardHandler boardHandler;
     private PieceGenerator pieceGenerator;
-    private Piece nextPiece;
     private int time;
-    private ConfigFile loopConfigs;
+    private long lastDrop;
+
 
     public Dropper(BoardHandler boardHandler, ConfigFile loopConfigs) {
         this.boardHandler = boardHandler;
-        this.loopConfigs = loopConfigs;
-        initComponents();
+        initComponents(loopConfigs);
+        boardHandler.setCurrentPiece(pieceGenerator.getCurrentPiece());
     }
 
-    private void initComponents() {
+    private void initComponents(ConfigFile loopConfigs) {
         time = loopConfigs.readInt("time");
         pieceGenerator = new PieceGenerator(loopConfigs.readInt("queueLength"), loopConfigs.readInt("boardWidth")
                 , loopConfigs.readInt("numberOfPieces"));
     }
 
-    @Override
-    public void run() {
-        boardHandler.setCurrentPiece(pieceGenerator.getCurrentPiece());
-        nextPiece = pieceGenerator.getNextPiece();
+//    @Override
+//    public void run() {
+//        while (true) {
+//            try {
+//                sleep(time);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
-        while (true) {
-            if (!boardHandler.moveDown()) {
-                boardHandler.addPieceToUsed();
-                pieceGenerator.shiftQueue();
-                boardHandler.setCurrentPiece(pieceGenerator.getCurrentPiece());
-                boardHandler.turnOver();
-                nextPiece = pieceGenerator.getNextPiece();
-            }
-            boardHandler.updateAdmin();
-            try {
-                sleep(time);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+    public void update(){
+        if(lastDrop==0){
+            lastDrop = System.currentTimeMillis();
+            drop();
+        } else {
+            long now = System.currentTimeMillis();
+            if (lastDrop - now > time){
+                lastDrop = now;
+                drop();
             }
         }
+    }
+
+    private void drop() {
+        if (boardHandler.canMoveDown()) {
+            boardHandler.moveDown();
+        } else {
+            boardHandler.addPieceToUsed();
+            pieceGenerator.shiftQueue();
+            boardHandler.setCurrentPiece(pieceGenerator.getCurrentPiece());
+            boardHandler.turnOver();
+        }
+        boardHandler.updateAdmin();
     }
 }

@@ -55,16 +55,17 @@ public class BoardHandler {
 
     }
 
-    public boolean moveDown() {
+    public boolean canMoveDown() {
         int[] xs = currentPiece.getXs(), ys = currentPiece.getYs();
-        if ((board.isCellAvailable(xs[0], ys[0] + 1))
+        return (board.isCellAvailable(xs[0], ys[0] + 1))
                 && (board.isCellAvailable(xs[1], ys[1] + 1))
                 && (board.isCellAvailable(xs[2], ys[2] + 1))
-                && (board.isCellAvailable(xs[3], ys[3] + 1))) {
-            currentPiece.setYs(ys[0] + 1, ys[1] + 1, ys[2] + 1, ys[3] + 1);
-            return true;
-        }
-        return false;
+                && (board.isCellAvailable(xs[3], ys[3] + 1));
+    }
+
+    public void moveDown() {
+        int[] ys = currentPiece.getYs();
+        currentPiece.setYs(ys[0] + 1, ys[1] + 1, ys[2] + 1, ys[3] + 1);
     }
 
     public void undo() {
@@ -72,9 +73,9 @@ public class BoardHandler {
     }
 
     public void drop() {
-        while (moveDown()) {
+        while (canMoveDown()) {
+            moveDown();
         }
-
     }
 
     public void addPieceToUsed() {
