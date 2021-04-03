@@ -46,6 +46,7 @@ public class Converter {
     }
 
     private void convertPiece(int[] pieceXs, int[] pieceYs, String pieceName) {
+        if (pieceXs == null || pieceYs == null || pieceName == null) return;
         Color color = configFile.readColor(pieceName);
         for (int i = 0; i < pieceXs.length; i++) {
             cells[pieceXs[i]][pieceYs[i]].setColor(color);

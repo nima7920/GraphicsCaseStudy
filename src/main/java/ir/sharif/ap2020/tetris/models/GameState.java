@@ -51,16 +51,19 @@ public class GameState implements GameStateAPI {
 
     @Override
     public int[] getPieceXs() {
+        if (currentPiece==null) return null;
         return currentPiece.getXs();
     }
 
     @Override
     public int[] getPieceYs() {
+        if (currentPiece==null) return null;
         return currentPiece.getYs();
     }
 
     @Override
     public String getCurrentPieceName() {
+        if (currentPiece==null) return null;
         return currentPiece.getName();
     }
 

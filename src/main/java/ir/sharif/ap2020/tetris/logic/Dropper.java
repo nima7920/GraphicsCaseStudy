@@ -17,12 +17,12 @@ public class Dropper {
         pieceGenerator = new PieceGenerator(loopConfigs.readInt("queueLength"), loopConfigs.readInt("boardWidth")
                 , loopConfigs.readInt("numberOfPieces"));
         this.gameState = gameState;
-        gameState.setCurrentPiece(pieceGenerator.getCurrentPiece());
     }
 
     public void update(){
         if(lastDrop==0){
             lastDrop = System.currentTimeMillis();
+            gameState.setCurrentPiece(pieceGenerator.getCurrentPiece());
             drop();
         } else {
             long now = System.currentTimeMillis();
