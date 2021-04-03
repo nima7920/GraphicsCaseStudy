@@ -12,17 +12,19 @@ public class InfoPanel extends SubPanel {
 
     private JLabel scoreLabel;
     private int score;
+    private String scoreText;
 
     public InfoPanel(ConfigFile configs, Actions actions) {
         super(configs, actions);
     }
 
     @Override
-    protected void initPanel() {
-        initLabel();
+    protected void initPanel(ConfigFile configs) {
+        initLabel(configs);
+        this.scoreText = configs.getProperty("scoreText");
     }
 
-    private void initLabel() {
+    private void initLabel(ConfigFile configs) {
         scoreLabel = new JLabel(configs.getProperty("scoreText") + score);
         scoreLabel.setBounds(configs.readRectangle("scoreLabel"));
         scoreLabel.setForeground(configs.readColor("scoreColor"));
@@ -37,6 +39,6 @@ public class InfoPanel extends SubPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        scoreLabel.setText(configs.getProperty("scoreText") + score);
+        scoreLabel.setText(scoreText + score);
     }
 }

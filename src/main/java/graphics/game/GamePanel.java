@@ -10,8 +10,8 @@ import java.awt.*;
 
 public class GamePanel extends JPanel {
 
-    private ConfigRepository configRepository;
-    private ConfigFile gameConfigs;
+    private final ConfigRepository configRepository;
+    private final ConfigFile gameConfigs;
     private BoardPanel boardPanel;
     private InfoPanel infoPanel;
     private OptionsPanel optionsPanel;

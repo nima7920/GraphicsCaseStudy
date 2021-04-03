@@ -10,17 +10,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Actions {
-
-    private ConfigFile configs;
     private int leftKey, rightKey, rotateKey;
     private String startText, pauseText;
 
     public Actions(ConfigFile configs) {
-        this.configs = configs;
-        setParameters();
+        setParameters(configs);
     }
 
-    private void setParameters() {
+    private void setParameters(ConfigFile configs) {
         leftKey = configs.readInt("leftKey");
         rightKey = configs.readInt("rightKey");
         rotateKey = configs.readInt("rotateKey");

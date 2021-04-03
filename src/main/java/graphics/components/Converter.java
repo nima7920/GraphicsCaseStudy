@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class Converter {
 
-    private ConfigFile configFile;
+    private final ConfigFile configFile;
     private GCell[][] cells;
     private Point top;
     private int m, n, align;

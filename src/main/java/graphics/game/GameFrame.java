@@ -6,8 +6,8 @@ import javax.swing.*;
 
 public class GameFrame extends JFrame implements Updatable {
 
-    private ConfigFile configFile;
-    private GamePanel gamePanel;
+    private final ConfigFile configFile;
+    private final GamePanel gamePanel;
 
     public GameFrame(ConfigFile configFile, GamePanel gamePanel) {
         this.configFile = configFile;
@@ -19,7 +19,7 @@ public class GameFrame extends JFrame implements Updatable {
         setLayout(null);
         setResizable(false);
         setSize(gamePanel.getSize());
-        getContentPane().add(gamePanel);
+        setContentPane(gamePanel);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);

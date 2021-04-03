@@ -11,7 +11,7 @@ import java.awt.*;
 public class BoardPanel extends SubPanel {
 
     private GCell[][] cells;
-    private Converter converter;
+    private final Converter converter;
 
     public BoardPanel(ConfigFile configs, Actions actions, Converter converter) {
         super(configs, actions);
@@ -19,7 +19,7 @@ public class BoardPanel extends SubPanel {
     }
 
     @Override
-    protected void initPanel() {
+    protected void initPanel(ConfigFile configs) {
         addKeyListener(actions.boardKey);
     }
 
@@ -28,10 +28,10 @@ public class BoardPanel extends SubPanel {
         super.paintComponent(g);
         Graphics2D g2d = addRenderingHint(g);
         if (cells != null) {
-            for (int i = 0; i < cells.length; i++) {
-                for (int j = 0; j < cells[0].length; j++) {
-                    if (cells[i][j] != null)
-                        cells[i][j].paint(g2d);
+            for (GCell[] cells : this.cells) {
+                for (GCell cell:cells) {
+                    if (cell != null)
+                        cell.paint(g2d);
                 }
             }
 

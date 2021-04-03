@@ -14,11 +14,11 @@ public class OptionsPanel extends SubPanel {
     }
 
     @Override
-    protected void initPanel() {
-        initButtons();
+    protected void initPanel(ConfigFile configs) {
+        initButtons(configs);
     }
 
-    private void initButtons() {
+    private void initButtons(ConfigFile configs) {
         startButton = new JButton("start");
         startButton.setBounds(configs.readRectangle("startButton"));
         startButton.addActionListener(actions.startButtonAction);

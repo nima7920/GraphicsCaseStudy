@@ -7,19 +7,17 @@ public class GameLoop implements Runnable {
 
     private int frames;
     private int updatesPerRepaint;
-    private final ConfigFile configFile;
     private final Updatable updatable;
     private final Thread thread;
     private boolean running;
 
     public GameLoop(ConfigFile configFile, Updatable updatable) {
-        this.configFile = configFile;
         this.updatable = updatable;
         this.thread = new Thread(this);
-        setValues();
+        setValues(configFile);
     }
 
-    private void setValues() {
+    private void setValues(ConfigFile configFile) {
         int fps = configFile.readInt("fps");
         int milSec = configFile.readInt("milSec");
         updatesPerRepaint = configFile.readInt("updatesPerRepaint");
