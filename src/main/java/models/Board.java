@@ -2,8 +2,8 @@ package models;
 
 
 public class Board {
-    private int m, n;
-    private Cell[][] cells;
+    private final int m, n;
+    private final Cell[][] cells;
 
     public Board(int m, int n) {
         this.m = m;
@@ -34,8 +34,7 @@ public class Board {
 
     public boolean isCellAvailable(int x, int y) {
         if (x >= 0 && y >= 0 && x < m && y < n) {
-            if (!cells[x][y].isUsed())
-                return true;
+            return !cells[x][y].isUsed();
         }
         return false;
     }

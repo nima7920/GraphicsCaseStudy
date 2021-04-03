@@ -6,9 +6,9 @@ import java.util.Random;
 
 public class PieceGenerator {
 
-    private int queueLength;
-    private int boardWidth;
-    private int numberOfPieces;
+    private final int queueLength;
+    private final int boardWidth;
+    private final int numberOfPieces;
     private Piece[] pieceQueue;
 
     public PieceGenerator(int queueLength, int boardWidth, int numberOfPieces) {
@@ -47,14 +47,8 @@ public class PieceGenerator {
         return pieceQueue[0];
     }
 
-    public Piece getNextPiece() {
-        return pieceQueue[1];
-    }
-
     public void shiftQueue() {
-        for (int i = 0; i < queueLength - 1; i++) {
-            pieceQueue[i] = pieceQueue[i + 1];
-        }
+        if (queueLength - 1 >= 0) System.arraycopy(pieceQueue, 1, pieceQueue, 0, queueLength - 1);
         pieceQueue[queueLength - 1] = generatePiece();
     }
 
