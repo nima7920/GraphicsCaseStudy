@@ -1,6 +1,6 @@
 package graphics.game;
 
-import admin.LogicAdmin;
+import admin.GraphicsAdmin;
 import configs.ConfigFile;
 import graphics.components.SubPanel;
 
@@ -8,14 +8,14 @@ import javax.swing.*;
 import java.awt.*;
 
 public class InfoPanel extends SubPanel {
-
-
     private JLabel scoreLabel;
     private int score;
     private String scoreText;
+    private final GraphicsAdmin graphicsAdmin;
 
-    public InfoPanel(ConfigFile configs, Actions actions) {
+    public InfoPanel(ConfigFile configs, Actions actions, GraphicsAdmin graphicsAdmin) {
         super(configs, actions);
+        this.graphicsAdmin = graphicsAdmin;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class InfoPanel extends SubPanel {
     }
 
     void updateInfo() {
-        score = LogicAdmin.getInstance().getScore();
+        score = graphicsAdmin.getLogic().getGameState().getScore();
     }
 
     @Override

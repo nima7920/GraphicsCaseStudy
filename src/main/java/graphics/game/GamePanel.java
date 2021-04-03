@@ -1,7 +1,6 @@
 package graphics.game;
 
 import admin.GraphicsAdmin;
-import admin.LogicAdmin;
 import configs.ConfigFile;
 import configs.ConfigRepository;
 import graphics.components.Converter;
@@ -34,16 +33,16 @@ public class GamePanel extends JPanel {
     private void initPanels() {
         Actions actions = new Actions(configRepository.getConfig("Actions"), graphicsAdmin);
         boardPanel = new BoardPanel(configRepository.getConfig("BoardPanel"), actions,
-                new Converter(configRepository.getConfig("BoardConverter")));
+                new Converter(configRepository.getConfig("BoardConverter")),graphicsAdmin);
         add(boardPanel);
         optionsPanel = new OptionsPanel(configRepository.getConfig("OptionsPanel"), actions);
         add(optionsPanel);
-        infoPanel = new InfoPanel(configRepository.getConfig("InfoPanel"), actions);
+        infoPanel = new InfoPanel(configRepository.getConfig("InfoPanel"), actions, graphicsAdmin);
         add(infoPanel);
     }
 
     public void update() {
-        if (LogicAdmin.getInstance().isGameOver()) {
+        if (graphicsAdmin.getLogic().getGameState().isGameOver()) {
             gameOver();
         } else {
             boardPanel.updateBoard();
@@ -53,7 +52,7 @@ public class GamePanel extends JPanel {
 
     private void gameOver() {
         JOptionPane.showMessageDialog(null, gameConfigs.getProperty("gameOverText") +
-                LogicAdmin.getInstance().getScore());
+                graphicsAdmin.getLogic().getGameState().getScore());
         System.exit(0);
     }
 

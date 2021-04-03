@@ -40,6 +40,10 @@ public class GraphicsAdmin {
         program.getLogic().startPause();
     }
 
+    public LogicAPI getLogic(){
+        return program.getLogic();
+    }
+
     public void initialize() {
         gamePanel.initialize();
         frame.initFrame();

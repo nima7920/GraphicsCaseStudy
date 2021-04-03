@@ -1,6 +1,7 @@
 package graphics.game;
 
-import admin.LogicAdmin;
+import admin.GameStateAPI;
+import admin.GraphicsAdmin;
 import configs.ConfigFile;
 import graphics.components.Converter;
 import graphics.components.GCell;
@@ -9,13 +10,14 @@ import graphics.components.SubPanel;
 import java.awt.*;
 
 public class BoardPanel extends SubPanel {
-
     private GCell[][] cells;
     private final Converter converter;
+    private final GraphicsAdmin graphicsAdmin;
 
-    public BoardPanel(ConfigFile configs, Actions actions, Converter converter) {
+    public BoardPanel(ConfigFile configs, Actions actions, Converter converter, GraphicsAdmin graphicsAdmin) {
         super(configs, actions);
         this.converter = converter;
+        this.graphicsAdmin = graphicsAdmin;
     }
 
     @Override
@@ -29,7 +31,7 @@ public class BoardPanel extends SubPanel {
         Graphics2D g2d = addRenderingHint(g);
         if (cells != null) {
             for (GCell[] cells : this.cells) {
-                for (GCell cell:cells) {
+                for (GCell cell : cells) {
                     if (cell != null)
                         cell.paint(g2d);
                 }
@@ -40,9 +42,9 @@ public class BoardPanel extends SubPanel {
     }
 
     void updateBoard() {
-        LogicAdmin.getInstance().passBoard(converter);
+        GameStateAPI gameState = graphicsAdmin.getLogic().getGameState();
+        converter.convertBoard(gameState.getConvertedBoard(), gameState.getPieceXs()
+                , gameState.getPieceYs(), gameState.getCurrentPieceName());
         cells = converter.getCells();
     }
-
-
 }

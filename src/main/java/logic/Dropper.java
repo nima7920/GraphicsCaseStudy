@@ -1,27 +1,24 @@
 package logic;
 
 import configs.ConfigFile;
+import models.GameState;
 
 public class Dropper {
-
     private final BoardHandler boardHandler;
-    private PieceGenerator pieceGenerator;
-    private int time;
+    private final PieceGenerator pieceGenerator;
+    private final int time;
+    private final GameState gameState;
     private long lastDrop;
 
 
-    public Dropper(BoardHandler boardHandler, ConfigFile loopConfigs) {
+    public Dropper(BoardHandler boardHandler, ConfigFile loopConfigs,GameState gameState) {
         this.boardHandler = boardHandler;
-        initComponents(loopConfigs);
-        boardHandler.setCurrentPiece(pieceGenerator.getCurrentPiece());
-    }
-
-    private void initComponents(ConfigFile loopConfigs) {
-        time = loopConfigs.readInt("time");
+        this.time = loopConfigs.readInt("time");
         pieceGenerator = new PieceGenerator(loopConfigs.readInt("queueLength"), loopConfigs.readInt("boardWidth")
                 , loopConfigs.readInt("numberOfPieces"));
+        this.gameState = gameState;
+        gameState.setCurrentPiece(pieceGenerator.getCurrentPiece());
     }
-
 
     public void update(){
         if(lastDrop==0){
@@ -40,7 +37,7 @@ public class Dropper {
         if (!boardHandler.canMoveDown()) {
             boardHandler.addPieceToUsed();
             pieceGenerator.shiftQueue();
-            boardHandler.setCurrentPiece(pieceGenerator.getCurrentPiece());
+            gameState.setCurrentPiece(pieceGenerator.getCurrentPiece());
             boardHandler.turnOver();
         } else {
             boardHandler.moveDown();

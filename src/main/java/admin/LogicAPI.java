@@ -1,5 +1,7 @@
 package admin;
 
+import models.GameState;
+
 public interface LogicAPI {
     void rotate();
 
@@ -12,4 +14,6 @@ public interface LogicAPI {
     void undo();
 
     void startPause();
+
+    GameStateAPI getGameState();
 }

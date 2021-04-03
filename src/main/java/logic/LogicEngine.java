@@ -1,23 +1,25 @@
 package logic;
 
+import admin.GameStateAPI;
 import admin.LogicAPI;
 import configs.ConfigRepository;
+import models.GameState;
 
 public class LogicEngine implements LogicAPI {
 
-    private BoardHandler boardHandler;
-    private Dropper dropper;
-    private final ConfigRepository logicConfigs;
+    private final BoardHandler boardHandler;
+    private final Dropper dropper;
     private boolean isPaused = false;
+    private final GameState gameState;
 
     public LogicEngine(ConfigRepository logicConfigs) {
-        this.logicConfigs = logicConfigs;
+        this.gameState = new GameState(logicConfigs.getConfig("Board"));
+        this.boardHandler = new BoardHandler(gameState);
+        this.dropper = new Dropper(boardHandler, logicConfigs.getConfig("Dropper"),gameState);
     }
 
     public void initialize() {
-        boardHandler = new BoardHandler(logicConfigs.getConfig("Board"));
-        dropper = new Dropper(boardHandler, logicConfigs.getConfig("Dropper"));
-//        dropper.start();
+
     }
 
     public void rotate() {
@@ -57,6 +59,11 @@ public class LogicEngine implements LogicAPI {
 
     public void startPause() {
 
+    }
+
+    @Override
+    public GameStateAPI getGameState() {
+        return gameState;
     }
 
     public void update(){
