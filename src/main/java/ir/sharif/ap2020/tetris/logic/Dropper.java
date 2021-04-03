@@ -11,7 +11,7 @@ public class Dropper {
     private long lastDrop;
 
 
-    public Dropper(BoardHandler boardHandler, ConfigFile loopConfigs,GameState gameState) {
+    public Dropper(BoardHandler boardHandler, ConfigFile loopConfigs, GameState gameState) {
         this.boardHandler = boardHandler;
         this.time = loopConfigs.readInt("time");
         pieceGenerator = new PieceGenerator(loopConfigs.readInt("queueLength"), loopConfigs.readInt("boardWidth")
@@ -19,14 +19,14 @@ public class Dropper {
         this.gameState = gameState;
     }
 
-    public void update(){
-        if(lastDrop==0){
+    public void update() {
+        if (lastDrop == 0) {
             lastDrop = System.currentTimeMillis();
             gameState.setCurrentPiece(pieceGenerator.getCurrentPiece());
             drop();
         } else {
             long now = System.currentTimeMillis();
-            if (now - lastDrop > time){
+            if (now - lastDrop > time) {
                 lastDrop = now;
                 drop();
             }
@@ -42,6 +42,5 @@ public class Dropper {
         } else {
             boardHandler.moveDown();
         }
-        boardHandler.updateAdmin();
     }
 }

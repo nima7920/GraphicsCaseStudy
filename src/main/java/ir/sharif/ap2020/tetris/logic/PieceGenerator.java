@@ -5,7 +5,6 @@ import ir.sharif.ap2020.tetris.models.pieces.*;
 import java.util.Random;
 
 public class PieceGenerator {
-
     private final int queueLength;
     private final int boardWidth;
     private final int numberOfPieces;
@@ -85,5 +84,4 @@ public class PieceGenerator {
         rightLeg.generateDefault(boardWidth, 0);
         return rightLeg;
     }
-
 }

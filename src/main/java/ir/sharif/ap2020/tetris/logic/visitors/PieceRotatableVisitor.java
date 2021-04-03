@@ -4,7 +4,6 @@ import ir.sharif.ap2020.tetris.models.Board;
 import ir.sharif.ap2020.tetris.models.pieces.*;
 
 public class PieceRotatableVisitor implements PieceVisitor {
-
     private final Board board;
 
     public PieceRotatableVisitor(Board board) {

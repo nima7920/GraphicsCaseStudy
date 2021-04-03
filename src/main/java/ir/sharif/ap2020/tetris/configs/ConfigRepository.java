@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class ConfigRepository {
-
     protected HashMap<String, ConfigFile> configs;
     protected File repositoryDirectory;
 
@@ -32,6 +31,5 @@ public class ConfigRepository {
     public ConfigFile getConfig(String configName) {
         return configs.get(configName + ".properties");
     }
-
 }
 

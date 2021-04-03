@@ -5,14 +5,7 @@ import ir.sharif.ap2020.tetris.models.Cell;
 import ir.sharif.ap2020.tetris.models.RotationalState;
 
 public class LeftLeg extends Piece {
-
-    public LeftLeg(Cell cell1, Cell cell2, Cell cell3, Cell cell4) {
-        super(cell1, cell2, cell3, cell4);
-    }
-
-
     public LeftLeg() {
-
     }
 
     @Override

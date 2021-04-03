@@ -5,7 +5,6 @@ import ir.sharif.ap2020.tetris.configs.ConfigFile;
 import java.awt.*;
 
 public class Converter {
-
     private final ConfigFile configFile;
     private GCell[][] cells;
     private Point top;

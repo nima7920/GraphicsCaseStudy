@@ -5,7 +5,6 @@ import ir.sharif.ap2020.tetris.models.Cell;
 import ir.sharif.ap2020.tetris.models.RotationalState;
 
 public abstract class Piece {
-
     protected Cell cell1, cell2, cell3, cell4;
     protected RotationalState rotationalState = RotationalState.DOWN;
 

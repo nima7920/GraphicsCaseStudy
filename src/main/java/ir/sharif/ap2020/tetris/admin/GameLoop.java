@@ -3,7 +3,6 @@ package ir.sharif.ap2020.tetris.admin;
 import ir.sharif.ap2020.tetris.configs.ConfigFile;
 
 public class GameLoop implements Runnable {
-
     private int frames;
     private int updatesPerRepaint;
     private final Updatable updatable;

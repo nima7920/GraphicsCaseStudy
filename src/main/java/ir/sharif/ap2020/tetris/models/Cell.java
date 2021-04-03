@@ -4,11 +4,6 @@ public class Cell {
     private int x, y;
     private boolean used = false;
 
-    public Cell() {
-
-
-    }
-
     public Cell(int x, int y) {
         this.x = x;
         this.y = y;

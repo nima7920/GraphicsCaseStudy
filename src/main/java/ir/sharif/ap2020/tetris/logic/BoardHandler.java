@@ -17,10 +17,6 @@ public class BoardHandler {
         pieceRotateVisitor = new PieceRotateVisitor();
     }
 
-    public void setCurrentPiece(Piece currentPiece) {
-//        this.currentPiece = currentPiece;
-    }
-
     public void rotate() {
         if (gameState.getCurrentPiece().accept(pieceRotatableVisitor))
             gameState.getCurrentPiece().accept(pieceRotateVisitor);
@@ -130,9 +126,5 @@ public class BoardHandler {
             gameState.gameOver();
         }
 
-    }
-
-    void updateAdmin() {
-//        LogicAdmin.getInstance().updateBoard(gameState);
     }
 }

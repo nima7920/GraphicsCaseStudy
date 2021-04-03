@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel {
-
     private final ConfigRepository configRepository;
     private final ConfigFile gameConfigs;
     private final GraphicsAdmin graphicsAdmin;
@@ -33,7 +32,7 @@ public class GamePanel extends JPanel {
     private void initPanels() {
         Actions actions = new Actions(configRepository.getConfig("Actions"), graphicsAdmin);
         boardPanel = new BoardPanel(configRepository.getConfig("BoardPanel"), actions,
-                new Converter(configRepository.getConfig("BoardConverter")),graphicsAdmin);
+                new Converter(configRepository.getConfig("BoardConverter")), graphicsAdmin);
         add(boardPanel);
         optionsPanel = new OptionsPanel(configRepository.getConfig("OptionsPanel"), actions);
         add(optionsPanel);

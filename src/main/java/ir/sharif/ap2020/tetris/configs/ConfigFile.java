@@ -8,7 +8,6 @@ public class ConfigFile extends Properties {
         return Integer.parseInt(getProperty(name));
     }
 
-
     public Rectangle readRectangle(String name) {
         int x = Integer.parseInt(getProperty(name + "_x"));
         int y = Integer.parseInt(getProperty(name + "_y"));

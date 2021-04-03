@@ -4,8 +4,7 @@ import ir.sharif.ap2020.tetris.configs.ConfigFile;
 
 import javax.swing.*;
 
-public class GameFrame extends JFrame /*implements Updatable*/ {
-
+public class GameFrame extends JFrame {
     private final ConfigFile configFile;
     private final GamePanel gamePanel;
 
@@ -25,11 +24,6 @@ public class GameFrame extends JFrame /*implements Updatable*/ {
         setVisible(true);
     }
 
-//    @Override
-//    public void update() {
-//    }
-
-//    @Override
     public void render() {
         gamePanel.update();
         revalidate();

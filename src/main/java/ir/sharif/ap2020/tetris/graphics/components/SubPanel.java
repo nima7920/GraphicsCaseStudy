@@ -7,8 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class SubPanel extends JPanel {
-
-
     protected Actions actions;
 
     public SubPanel(ConfigFile configs, Actions actions) {

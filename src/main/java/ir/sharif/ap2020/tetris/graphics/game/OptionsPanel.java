@@ -6,7 +6,6 @@ import ir.sharif.ap2020.tetris.graphics.components.SubPanel;
 import javax.swing.*;
 
 public class OptionsPanel extends SubPanel {
-
     private JButton startButton, undoButton, dropButton;
 
     public OptionsPanel(ConfigFile configs, Actions actions) {
@@ -34,5 +33,4 @@ public class OptionsPanel extends SubPanel {
         dropButton.addActionListener(actions.dropButtonAction);
         add(dropButton);
     }
-
 }

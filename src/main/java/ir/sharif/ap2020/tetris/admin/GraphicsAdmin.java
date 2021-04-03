@@ -40,7 +40,7 @@ public class GraphicsAdmin {
         program.getLogic().startPause();
     }
 
-    public LogicAPI getLogic(){
+    public LogicAPI getLogic() {
         return program.getLogic();
     }
 

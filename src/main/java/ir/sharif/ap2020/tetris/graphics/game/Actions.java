@@ -53,7 +53,6 @@ public class Actions {
     KeyListener boardKey = new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
-
         }
 
         @Override
@@ -71,7 +70,6 @@ public class Actions {
 
         @Override
         public void keyReleased(KeyEvent e) {
-
         }
     };
 }

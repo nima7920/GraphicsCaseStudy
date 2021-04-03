@@ -20,35 +20,30 @@ public class LogicEngine implements LogicAPI {
     public void rotate() {
         if (!isPaused) {
             boardHandler.rotate();
-            boardHandler.updateAdmin();
         }
     }
 
     public void moveLeft() {
         if (!isPaused) {
             boardHandler.moveLeft();
-            boardHandler.updateAdmin();
         }
     }
 
     public void moveRight() {
         if (!isPaused) {
             boardHandler.moveRight();
-            boardHandler.updateAdmin();
         }
     }
 
     public void drop() {
         if (!isPaused) {
             boardHandler.drop();
-            boardHandler.updateAdmin();
         }
     }
 
     public void undo() {
         if (!isPaused) {
             boardHandler.undo();
-            boardHandler.updateAdmin();
         }
     }
 

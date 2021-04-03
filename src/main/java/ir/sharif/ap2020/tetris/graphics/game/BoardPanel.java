@@ -36,7 +36,6 @@ public class BoardPanel extends SubPanel {
                         cell.paint(g2d);
                 }
             }
-
         }
         requestFocus();
     }
