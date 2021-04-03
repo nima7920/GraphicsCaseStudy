@@ -1,7 +1,6 @@
-package graphics.components;
+package admin;
 
 import configs.ConfigFile;
-import graphics.game.Updatable;
 
 public class GameLoop implements Runnable {
 

@@ -1,45 +1,51 @@
 package admin;
 
 
-import logic.LogicEngine;
+import configs.ConfigRepository;
+import graphics.game.GameFrame;
+import graphics.game.GamePanel;
 
 public class GraphicsAdmin {
+    private final Program program;
+    private final GamePanel gamePanel;
+    private final GameFrame frame;
 
-    private static GraphicsAdmin graphicsAdmin;
-    private LogicEngine logicEngine;
-
-    public static GraphicsAdmin getInstance() {
-        if (graphicsAdmin == null)
-            graphicsAdmin = new GraphicsAdmin();
-
-        return graphicsAdmin;
-    }
-
-    public void setLogicEngine(LogicEngine logicEngine) {
-        this.logicEngine = logicEngine;
+    public GraphicsAdmin(Program program, ConfigRepository uiConfigs) {
+        this.program = program;
+        this.gamePanel = new GamePanel(uiConfigs, this);
+        this.frame = new GameFrame(uiConfigs.getConfig("GameFrame"), gamePanel);
     }
 
     public void rotate() {
-        logicEngine.rotate();
+        program.getLogic().rotate();
     }
 
     public void moveLeft() {
-        logicEngine.moveLeft();
+        program.getLogic().moveLeft();
     }
 
     public void moveRight() {
-        logicEngine.moveRight();
+        program.getLogic().moveRight();
     }
 
     public void drop() {
-        logicEngine.drop();
+        program.getLogic().drop();
     }
 
     public void undo() {
-        logicEngine.undo();
+        program.getLogic().undo();
     }
 
     public void startPause() {
-        logicEngine.startPause();
+        program.getLogic().startPause();
+    }
+
+    public void initialize() {
+        gamePanel.initialize();
+        frame.initFrame();
+    }
+
+    public void update() {
+        frame.render();
     }
 }

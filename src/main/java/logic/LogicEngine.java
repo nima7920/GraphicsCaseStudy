@@ -1,8 +1,9 @@
 package logic;
 
+import admin.LogicAPI;
 import configs.ConfigRepository;
 
-public class LogicEngine {
+public class LogicEngine implements LogicAPI {
 
     private BoardHandler boardHandler;
     private Dropper dropper;
@@ -56,5 +57,9 @@ public class LogicEngine {
 
     public void startPause() {
 
+    }
+
+    public void update(){
+        dropper.update();
     }
 }

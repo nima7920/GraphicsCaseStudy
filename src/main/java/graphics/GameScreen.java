@@ -1,25 +1,21 @@
 package graphics;
 
+import admin.GraphicsAdmin;
 import configs.ConfigRepository;
-import graphics.components.GameLoop;
-import graphics.game.GameFrame;
-import graphics.game.GamePanel;
+import admin.GameLoop;
 
 public class GameScreen {
-    private final GamePanel gamePanel;
-    private final GameFrame frame;
-    private final GameLoop gameLoop;
+
+//    private final GameLoop gameLoop;
 
 
-    public GameScreen(ConfigRepository configRepository) {
-        this.gamePanel = new GamePanel(configRepository);
-        this.frame = new GameFrame(configRepository.getConfig("GameFrame"), gamePanel);
-        this.gameLoop = new GameLoop(configRepository.getConfig("Loop"), frame);
+    public GameScreen(ConfigRepository configRepository, GraphicsAdmin graphicsAdmin) {
+
+
     }
 
     public void initialize() {
-        frame.initFrame();
-        gameLoop.start();
+//        gameLoop.start();
     }
 
 }

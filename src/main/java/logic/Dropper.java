@@ -2,7 +2,7 @@ package logic;
 
 import configs.ConfigFile;
 
-public class Dropper /*extends Thread */{
+public class Dropper {
 
     private final BoardHandler boardHandler;
     private PieceGenerator pieceGenerator;
@@ -22,16 +22,6 @@ public class Dropper /*extends Thread */{
                 , loopConfigs.readInt("numberOfPieces"));
     }
 
-//    @Override
-//    public void run() {
-//        while (true) {
-//            try {
-//                sleep(time);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 
     public void update(){
         if(lastDrop==0){
@@ -39,7 +29,7 @@ public class Dropper /*extends Thread */{
             drop();
         } else {
             long now = System.currentTimeMillis();
-            if (lastDrop - now > time){
+            if (now - lastDrop > time){
                 lastDrop = now;
                 drop();
             }
@@ -47,13 +37,13 @@ public class Dropper /*extends Thread */{
     }
 
     private void drop() {
-        if (boardHandler.canMoveDown()) {
-            boardHandler.moveDown();
-        } else {
+        if (!boardHandler.canMoveDown()) {
             boardHandler.addPieceToUsed();
             pieceGenerator.shiftQueue();
             boardHandler.setCurrentPiece(pieceGenerator.getCurrentPiece());
             boardHandler.turnOver();
+        } else {
+            boardHandler.moveDown();
         }
         boardHandler.updateAdmin();
     }

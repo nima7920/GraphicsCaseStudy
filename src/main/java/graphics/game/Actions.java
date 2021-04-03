@@ -10,10 +10,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Actions {
+    private final GraphicsAdmin graphicsAdmin;
     private int leftKey, rightKey, rotateKey;
     private String startText, pauseText;
 
-    public Actions(ConfigFile configs) {
+    public Actions(ConfigFile configs, GraphicsAdmin graphicsAdmin) {
+        this.graphicsAdmin = graphicsAdmin;
         setParameters(configs);
     }
 
@@ -34,17 +36,17 @@ public class Actions {
             } else {
                 ((JButton) e.getSource()).setText(startText);
             }
-            GraphicsAdmin.getInstance().startPause();
+            graphicsAdmin.startPause();
         }
     }, undoButtonAction = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            GraphicsAdmin.getInstance().undo();
+            graphicsAdmin.undo();
         }
     }, dropButtonAction = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            GraphicsAdmin.getInstance().drop();
+            graphicsAdmin.drop();
         }
     };
 
@@ -57,13 +59,13 @@ public class Actions {
         @Override
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == leftKey) {
-                GraphicsAdmin.getInstance().moveLeft();
+                graphicsAdmin.moveLeft();
             }
             if (e.getKeyCode() == rightKey) {
-                GraphicsAdmin.getInstance().moveRight();
+                graphicsAdmin.moveRight();
             }
             if (e.getKeyCode() == rotateKey) {
-                GraphicsAdmin.getInstance().rotate();
+                graphicsAdmin.rotate();
             }
         }
 

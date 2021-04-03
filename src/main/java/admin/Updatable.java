@@ -1,4 +1,4 @@
-package graphics.game;
+package admin;
 
 public interface Updatable {
     void update();
