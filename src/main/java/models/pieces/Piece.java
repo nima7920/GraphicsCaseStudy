@@ -7,7 +7,7 @@ import models.RotationalState;
 public abstract class Piece {
 
     protected Cell cell1, cell2, cell3, cell4;
-    protected RotationalState rotationalState = RotationalState.down;
+    protected RotationalState rotationalState = RotationalState.DOWN;
 
     public Piece() {
 

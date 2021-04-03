@@ -1,5 +1,5 @@
 package models;
 
 public enum RotationalState {
-    up, down, left, right;
+    UP, DOWN, LEFT, RIGHT
 }

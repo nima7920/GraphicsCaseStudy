@@ -16,25 +16,25 @@ public class PieceRotateVisitor implements PieceVisitor {
     public boolean woodVisit(Wood wood) {
         int[] xs = wood.getXs(), ys = wood.getYs();
         switch (wood.getRotationalState()) {
-            case up:
+            case UP:
                 wood.setXs(xs[1], xs[1], xs[1], xs[1]);
                 wood.setYs(ys[1] + 1, ys[1], ys[1] - 1, ys[1] - 2);
-                wood.setRotationalState(RotationalState.right);
+                wood.setRotationalState(RotationalState.RIGHT);
                 break;
-            case down:
+            case DOWN:
                 wood.setXs(xs[1], xs[1], xs[1], xs[1]);
                 wood.setYs(ys[1] - 1, ys[1], ys[1] + 1, ys[1] + 2);
-                wood.setRotationalState(RotationalState.left);
+                wood.setRotationalState(RotationalState.LEFT);
                 break;
-            case right:
+            case RIGHT:
                 wood.setXs(xs[1] - 1, xs[1], xs[1] + 1, xs[1] + 2);
                 wood.setYs(ys[1], ys[1], ys[1], ys[1]);
-                wood.setRotationalState(RotationalState.down);
+                wood.setRotationalState(RotationalState.DOWN);
                 break;
-            case left:
+            case LEFT:
                 wood.setXs(xs[1] + 1, xs[1], xs[1] - 1, xs[1] - 2);
                 wood.setYs(ys[1], ys[1], ys[1], ys[1]);
-                wood.setRotationalState(RotationalState.up);
+                wood.setRotationalState(RotationalState.UP);
                 break;
         }
         return true;
@@ -44,25 +44,25 @@ public class PieceRotateVisitor implements PieceVisitor {
     public boolean mountainVisit(Mountain mountain) {
         int[] xs = mountain.getXs(), ys = mountain.getYs();
         switch (mountain.getRotationalState()) {
-            case up:
+            case UP:
                 mountain.setXs(xs[1], xs[1], xs[1], xs[1] + 1);
                 mountain.setYs(ys[1] + 1, ys[1], ys[1] - 1, ys[1]);
-                mountain.setRotationalState(RotationalState.right);
+                mountain.setRotationalState(RotationalState.RIGHT);
                 break;
-            case down:
+            case DOWN:
                 mountain.setXs(xs[1], xs[1], xs[1], xs[1] - 1);
                 mountain.setYs(ys[1] - 1, ys[1], ys[1] + 1, ys[1]);
-                mountain.setRotationalState(RotationalState.left);
+                mountain.setRotationalState(RotationalState.LEFT);
                 break;
-            case right:
+            case RIGHT:
                 mountain.setXs(xs[1] - 1, xs[1], xs[1] + 1, xs[1]);
                 mountain.setYs(ys[1], ys[1], ys[1], ys[1] + 1);
-                mountain.setRotationalState(RotationalState.down);
+                mountain.setRotationalState(RotationalState.DOWN);
                 break;
-            case left:
+            case LEFT:
                 mountain.setXs(xs[1] + 1, xs[1], xs[1] - 1, xs[1]);
                 mountain.setYs(ys[1], ys[1], ys[1], ys[1] - 1);
-                mountain.setRotationalState(RotationalState.up);
+                mountain.setRotationalState(RotationalState.UP);
                 break;
         }
         return true;
@@ -78,25 +78,25 @@ public class PieceRotateVisitor implements PieceVisitor {
         int[] xs = leftLeg.getXs(), ys = leftLeg.getYs();
 
         switch (leftLeg.getRotationalState()) {
-            case up:
+            case UP:
                 leftLeg.setXs(xs[1], xs[1], xs[1], xs[1] + 1);
                 leftLeg.setYs(ys[1] + 1, ys[1], ys[1] - 1, ys[1] + 1);
-                leftLeg.setRotationalState(RotationalState.right);
+                leftLeg.setRotationalState(RotationalState.RIGHT);
                 break;
-            case down:
+            case DOWN:
                 leftLeg.setXs(xs[1], xs[1], xs[1], xs[1] - 1);
                 leftLeg.setYs(ys[1] - 1, ys[1], ys[1] + 1, ys[1] - 1);
-                leftLeg.setRotationalState(RotationalState.left);
+                leftLeg.setRotationalState(RotationalState.LEFT);
                 break;
-            case right:
+            case RIGHT:
                 leftLeg.setXs(xs[1] + 1, xs[1], xs[1] - 1, xs[1] - 1);
                 leftLeg.setYs(ys[1], ys[1], ys[1], ys[1] + 1);
-                leftLeg.setRotationalState(RotationalState.down);
+                leftLeg.setRotationalState(RotationalState.DOWN);
                 break;
-            case left:
+            case LEFT:
                 leftLeg.setXs(xs[1] - 1, xs[1], xs[1] + 1, xs[1] + 1);
                 leftLeg.setYs(ys[1], ys[1], ys[1], ys[1] - 1);
-                leftLeg.setRotationalState(RotationalState.up);
+                leftLeg.setRotationalState(RotationalState.UP);
                 break;
         }
         return true;
@@ -107,25 +107,25 @@ public class PieceRotateVisitor implements PieceVisitor {
         int[] xs = rightLeg.getXs(), ys = rightLeg.getYs();
 
         switch (rightLeg.getRotationalState()) {
-            case up:
+            case UP:
                 rightLeg.setXs(xs[1], xs[1], xs[1], xs[1] + 1);
                 rightLeg.setYs(ys[1] + 1, ys[1], ys[1] - 1, ys[1] - 1);
-                rightLeg.setRotationalState(RotationalState.right);
+                rightLeg.setRotationalState(RotationalState.RIGHT);
                 break;
-            case down:
+            case DOWN:
                 rightLeg.setXs(xs[1], xs[1], xs[1], xs[1] - 1);
                 rightLeg.setYs(ys[1] - 1, ys[1], ys[1] + 1, ys[1] + 1);
-                rightLeg.setRotationalState(RotationalState.left);
+                rightLeg.setRotationalState(RotationalState.LEFT);
                 break;
-            case right:
+            case RIGHT:
                 rightLeg.setXs(xs[1] + 1, xs[1], xs[1] - 1, xs[1] + 1);
                 rightLeg.setYs(ys[1], ys[1], ys[1], ys[1] + 1);
-                rightLeg.setRotationalState(RotationalState.down);
+                rightLeg.setRotationalState(RotationalState.DOWN);
                 break;
-            case left:
+            case LEFT:
                 rightLeg.setXs(xs[1] - 1, xs[1], xs[1] + 1, xs[1] - 1);
                 rightLeg.setYs(ys[1], ys[1], ys[1], ys[1] - 1);
-                rightLeg.setRotationalState(RotationalState.up);
+                rightLeg.setRotationalState(RotationalState.UP);
                 break;
         }
         return true;

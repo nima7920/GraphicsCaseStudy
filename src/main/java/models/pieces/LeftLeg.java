@@ -21,7 +21,7 @@ public class LeftLeg extends Piece {
         cell2 = new Cell(boardWidth / 2, baseY);
         cell3 = new Cell(boardWidth / 2 + 1, baseY);
         cell4 = new Cell(boardWidth / 2 - 1, baseY + 1);
-        rotationalState = RotationalState.down;
+        rotationalState = RotationalState.DOWN;
 
     }
 
