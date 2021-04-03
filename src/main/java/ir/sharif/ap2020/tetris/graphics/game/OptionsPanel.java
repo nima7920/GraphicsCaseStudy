@@ -19,17 +19,17 @@ public class OptionsPanel extends SubPanel {
     }
 
     private void initButtons(ConfigFile configs) {
-        startButton = new JButton("start");
+        startButton = new JButton(configs.getProperty("startText"));
         startButton.setBounds(configs.readRectangle("startButton"));
         startButton.addActionListener(actions.startButtonAction);
         add(startButton);
 
-        undoButton = new JButton("undo");
+        undoButton = new JButton(configs.getProperty("undoText"));
         undoButton.setBounds(configs.readRectangle("undoButton"));
         undoButton.addActionListener(actions.undoButtonAction);
         add(undoButton);
 
-        dropButton = new JButton("drop");
+        dropButton = new JButton(configs.getProperty("dropText"));
         dropButton.setBounds(configs.readRectangle("dropButton"));
         dropButton.addActionListener(actions.dropButtonAction);
         add(dropButton);
