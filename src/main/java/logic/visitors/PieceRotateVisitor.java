@@ -5,11 +5,7 @@ import models.RotationalState;
 import models.pieces.*;
 
 public class PieceRotateVisitor implements PieceVisitor {
-
-    private Board board;
-
-    public PieceRotateVisitor(Board board) {
-        this.board = board;
+    public PieceRotateVisitor() {
     }
 
     @Override

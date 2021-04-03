@@ -5,7 +5,7 @@ import models.pieces.*;
 
 public class PieceRotatableVisitor implements PieceVisitor {
 
-    private Board board;
+    private final Board board;
 
     public PieceRotatableVisitor(Board board) {
         this.board = board;

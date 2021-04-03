@@ -21,12 +21,8 @@ public class BoardHandler {
     private void initialize(ConfigFile boardConfigs) {
         board = new Board(boardConfigs.readInt("m"), boardConfigs.readInt("n"));
         pieceRotatableVisitor = new PieceRotatableVisitor(board);
-        pieceRotateVisitor = new PieceRotateVisitor(board);
+        pieceRotateVisitor = new PieceRotateVisitor();
 
-    }
-
-    public Board getBoard() {
-        return board;
     }
 
     public void setCurrentPiece(Piece currentPiece) {

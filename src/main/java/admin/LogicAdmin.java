@@ -10,7 +10,7 @@ public class LogicAdmin {
 
     private boolean[][] convertedBoard;
     private int[] pieceXs, pieceYs;
-    private String currentPieceName, nextPieceName;
+    private String currentPieceName;
     private int score = 0;
     private boolean gameOver = false;
 

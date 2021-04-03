@@ -11,7 +11,6 @@ public class LogicEngine {
 
     public LogicEngine(ConfigRepository logicConfigs) {
         this.logicConfigs = logicConfigs;
-
     }
 
     public void initialize() {
