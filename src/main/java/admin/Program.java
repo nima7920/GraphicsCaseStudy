@@ -32,9 +32,6 @@ public class Program implements Updatable {
         // running ui
         graphicsAdmin.initialize();
 
-        // running logic
-        logicEngine.initialize();
-
         // running loop
         gameLoop.start();
     }
