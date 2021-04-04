@@ -29,13 +29,11 @@ public class Converter {
         if (board != null) {
             for (int i = 0; i < m; i++) {
                 for (int j = 0; j < n; j++) {
-                    cells[i][j] = new GCell();
-                    cells[i][j].setLocation(new Point(top.x + i * (cellSize.width + align), top.y + j * (cellSize.height + align)));
-                    cells[i][j].setSize(cellSize);
+                    Point point = new Point(top.x + i * (cellSize.width + align), top.y + j * (cellSize.height + align));
                     if (board[i][j]) {
-                        cells[i][j].setColor(configFile.readColor("usedColor"));
+                    cells[i][j] = new GCell(configFile.readColor("usedColor"),cellSize,point);
                     } else {
-                        cells[i][j].setColor(configFile.readColor("defaultColor"));
+                        cells[i][j] = new GCell(configFile.readColor("defaultColor"),cellSize,point);
                     }
                 }
 
