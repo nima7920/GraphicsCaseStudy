@@ -11,7 +11,7 @@ import java.awt.event.KeyListener;
 
 public class Actions {
     private final GraphicsAdmin graphicsAdmin;
-    private int leftKey, rightKey, rotateKey;
+    private int leftKey, rightKey,undoKey,dropKey, rotateKey;
     private String startText, pauseText;
 
     public Actions(ConfigFile configs, GraphicsAdmin graphicsAdmin) {
@@ -22,6 +22,8 @@ public class Actions {
     private void setParameters(ConfigFile configs) {
         leftKey = configs.readInt("leftKey");
         rightKey = configs.readInt("rightKey");
+        undoKey=configs.readInt("undoKey");
+        dropKey=configs.readInt("dropKey");
         rotateKey = configs.readInt("rotateKey");
         startText = configs.getProperty("startText");
         pauseText = configs.getProperty("pauseText");
@@ -57,15 +59,16 @@ public class Actions {
 
         @Override
         public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == leftKey) {
+            if (e.getKeyCode() == leftKey)
                 graphicsAdmin.moveLeft();
-            }
-            if (e.getKeyCode() == rightKey) {
+            if (e.getKeyCode() == rightKey)
                 graphicsAdmin.moveRight();
-            }
-            if (e.getKeyCode() == rotateKey) {
+            if (e.getKeyCode() == rotateKey)
                 graphicsAdmin.rotate();
-            }
+            if(e.getKeyCode()==undoKey)
+                graphicsAdmin.undo();
+            if (e.getKeyCode()==dropKey)
+                graphicsAdmin.drop();
         }
 
         @Override
